@@ -9,7 +9,6 @@ public class Options {
     private Long id;
     @Column(name="OPTION_VALUE")
     private String value;
-    // Getters and Setters omitted for brevity
 
     public Long getId() {
         return id;

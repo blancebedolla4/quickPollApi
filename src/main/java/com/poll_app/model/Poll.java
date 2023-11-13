@@ -1,6 +1,10 @@
 package com.poll_app.model;
 
+
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+
 import java.util.Set;
 
     @Entity
@@ -12,11 +16,12 @@ import java.util.Set;
 
         @Column(name = "question_ID")
 
+       @NotEmpty
         private String question;
         @OneToMany(cascade = {CascadeType.ALL})
         @JoinColumn(name="POLL_ID")
         @OrderBy
-
+        @Size(min=2, max =6)
         private Set<Options> options; //= new java.util.LinkedHashSet<>();
 
         public Set<Options> getOptions() {
@@ -34,8 +39,6 @@ import java.util.Set;
         public void setQuestion(String question) {
             this.question = question;
         }
-
-        // Getters and Setters omitted for brevity
 
         public Long getId() {
             return id;
